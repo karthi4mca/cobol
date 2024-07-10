@@ -1,5 +1,5 @@
 000010 IDENTIFICATION DIVISION.                                         00001000
-000020 PROGRAM-ID.    PDDC9870_1.                                         00002000
+000020 PROGRAM-ID.    PDDC9870.                                         00002000
 000030 AUTHOR.        ACS GOVERMENT HEALTHCARE.                         00003000
 000040 DATE-COMPILED.                                                   00004000
 000050*REMARKS.                                                         00005000

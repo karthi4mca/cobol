@@ -3091,7 +3091,7 @@ DF3736            AND B_BENEFIT_TY_CD   = :BBENEFTB-B-BENEFIT-TY-CD     DF3736
                   MOVE WS-000-LI-SUB       TO WW-600-CLM-EXC-LI         CR12914
                   PERFORM S600-000-INSERT-EXCEPTION                     CR12914
                 END-IF                                                  CR12914
-																		                                    CR12914
+								        CR12914
                 IF W1C40541-C-DRUG-SUB-QTY-AMT >                        CR12914
                                          W1C40541-C-QTY-PRSC-AMT        CR12914
                    IF (W1C52991-R-CLM-EXC-DISP-CD                       CR12914

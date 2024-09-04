@@ -21,19 +21,6 @@
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
  
- 
-       EXEC SQL
-            CONNECT TO 'your_database'
-            USER 'your_username'
-            USING 'your_password'
-       END-EXEC.
- 
- 
-       EXEC SQL
-           WHENEVER SQLERROR GOTO DB-ERROR
-       END-EXEC.
- 
- 
        MOVE 1001 TO WS-CUSTOMER-ID.
        EXEC SQL
            SELECT CUSTOMER_NAME, CUSTOMER_AGE
@@ -44,7 +31,18 @@
  
        DISPLAY 'Customer Name: ' WS-CUSTOMER-NAME.
        DISPLAY 'Customer Age: ' WS-CUSTOMER-AGE.
- 
+       EXEC SQL
+                   FETCH EMP_CURSOR INTO :EMPLOYEE-ID, :EMPLOYEE-NAME, :EMPLOYEE-SALARY
+       END-EXEC.
+       EXEC SQL
+               DELETE FROM EMPLOYEES
+               WHERE EMP_ID = :EMPLOYEE-ID
+       END-EXEC.
+       EXEC SQL
+              UPDATE EMPLOYEES
+              SET EMP_SALARY = EMP_SALARY + 1000
+              WHERE CURRENT OF EMP_CURSOR
+       END-EXEC
  
        MOVE 1002 TO WS-CUSTOMER-ID.
        MOVE 'John Doe' TO WS-CUSTOMER-NAME.

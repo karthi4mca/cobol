@@ -296,7 +296,6 @@ MAPOPS       05  WW-000-SYSLIST-EXIST             PIC X(01).            PMLS220
              05  WH-000-ALLOW-SHDL-II-COUNT      PIC 9(10) VALUE ZEROES.CR12914
 MAPOPS       EXEC SQL END DECLARE SECTION END-EXEC.                     00267000
 MAPOPS                                                                  00268000
-002030 ++INCLUDE WWG00050.                                              00269000
 002040                                                                  00270000
 002050* WD-999-SYSTEM-ABORT                                             00271000
 002060                     COPY WD999950.                               00272000

@@ -313,39 +313,7 @@
 031300        END-IF
 031400     END-IF.
 031500
-031600/
-031700 2000-ASSEMBLE-PPS-VARIABLES.
-031800******************************************************************
-031900***  CALCULATE PPS PRICING VARIABLES                           ***
-032000******************************************************************
-032100
-032200     MOVE PPS-WAGE-ADJ-RATE            TO H-WAGE-ADJ-PYMT-AMT.
-032300
-032400     COMPUTE H-BSA ROUNDED = (.007184 *
-032500         (B-PATIENT-HGT ** .725) * (B-PATIENT-WGT ** .425))
-032600
-032700     COMPUTE H-BMI ROUNDED = (B-PATIENT-WGT /
-032800         (B-PATIENT-HGT ** 2)) * 10000.
-032900
-033000     IF H-PATIENT-AGE > 17
-033100        COMPUTE H-BSA-FACTOR ROUNDED =
-033200             1.037 ** ((H-BSA - 1.84) / .1)
-033300     ELSE
-033400        MOVE 1.000                     TO H-BSA-FACTOR
-033500     END-IF.
-033600
-033700     IF (H-PATIENT-AGE > 17) AND (H-BMI < 18.5)
-033800        MOVE 1.112                     TO H-BMI-FACTOR
-033900     ELSE
-034000        MOVE 1.000                     TO H-BMI-FACTOR
-034100     END-IF.
-034200
-034300/
-034400******************************************************************
-034500***  IF THE BILL DATA HAS PASSED ALL EDITS (RTC=00)            ***
-034600***      CALCULATE THE STANDARD PAYMENT AMOUNT.                ***
-034700***    - BLEND 50% OLD RATE (MSA) WITH 50% NEW RATE (CBSA).    ***
-034800******************************************************************
+031600 COPY CALCOPY
 034900 3000-CALC-PAYMENT.
 035000
 035100     COMPUTE H-PYMT-AMT ROUNDED = H-WAGE-ADJ-PYMT-AMT *
